@@ -14,6 +14,22 @@ const BannerSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  desktopFit: {
+    type: String,
+    default: 'cover'
+  },
+  desktopPosition: {
+    type: String,
+    default: 'center'
+  },
+  mobileFit: {
+    type: String,
+    default: 'cover'
+  },
+  mobilePosition: {
+    type: String,
+    default: 'center'
+  },
   created: {
     type: Date,
     default: Date.now,

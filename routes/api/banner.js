@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 // POST add banner
 router.post('/add', auth,  async (req, res) => {
   try {
-    const { desktopImage, mobileImage } = req.body;
+    const { desktopImage, mobileImage, desktopFit, desktopPosition, mobileFit, mobilePosition } = req.body;
 
     if (!desktopImage || !mobileImage) {
       return res.status(400).json({ error: 'You must provide both desktop and mobile images.' });
@@ -37,7 +37,11 @@ router.post('/add', auth,  async (req, res) => {
     // const banner = new Banner({ desktopImage, mobileImage });
      const banner = new Banner({
       desktopImage: desktopUpload.secure_url,
-      mobileImage: mobileUpload.secure_url
+      mobileImage: mobileUpload.secure_url,
+      desktopFit,
+      desktopPosition,
+      mobileFit,
+      mobilePosition
     });
     const savedBanner = await banner.save();
 
